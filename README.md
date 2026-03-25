@@ -1,11 +1,11 @@
 # 🧠 Smart Re-Engagement System
 
-## 🚀 Overview
+ Overview
 This project is a smart user engagement system that detects inactive users and re-engages them using real-time notifications and an interactive assistant.
 
 ---
 
-## ✨ Features
+ Features
 - 📊 User activity tracking
 - ⚠️ Detect inactive & high-risk users
 - 🔔 Real-time notifications
@@ -15,15 +15,13 @@ This project is a smart user engagement system that detects inactive users and r
 
 ---
 
-## 🛠️ Tech Stack
+ Tech Stack
 - Backend: Flask (Python)
 - Database: SQLite
 - Frontend: HTML, CSS, JavaScript
 - Scheduling: APScheduler
 
----
-
-## 🧠 How It Works
+ How It Works
 1. User data is stored in the database  
 2. System analyzes user activity  
 3. Identifies inactive users  
@@ -31,21 +29,3 @@ This project is a smart user engagement system that detects inactive users and r
 5. Displays interactive popup with animated puppy  
 6. Puppy speaks message using browser voice  
 
----
-
-## 📂 Project Structure
-smart-reengagement-system/
-│
-├── app.py
-├── create_db.py
-├── insert_users.py
-├── users.db
-│
-├── static/
-│ ├── script.js
-│ └── puppy.gif
-│
-├── templates/
-│ └── index.html
-│
-└── README.md
