@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Re-Engagement System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .active { border-left: 5px solid green; }
+        .inactive { border-left: 5px solid orange; }
+        .high_risk { border-left: 5px solid red; }
+
+        /* 🐶 POPUP */
+        .puppy-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 320px;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            animation: slideUp 0.5s ease;
+        }
+
+        /* 🐶 WALK AREA */
+        .puppy-container {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            border-bottom: 2px solid #ddd; /* ground */
+        }
+        .puppy-img {
+            width: 80px;
+            position: absolute;
+            bottom: 0;
+
+            animation: walk 6s linear infinite;
+
+            mix-blend-mode: multiply;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)) blur(0.3px);
+        }
+
+        /* 🐶 WALKING PUPPY */
+        .puppy-img {
+            width: 80px;
+            position: absolute;
+            bottom: 0;
+
+            animation: walk 6s linear infinite;
+
+            filter: drop-shadow(0 6px 6px rgba(0,0,0,0.3));
+        }
+
+        /* 💬 MESSAGE */
+        .puppy-text {
+            font-size: 14px;
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* 🐶 REAL WALKING ANIMATION */
+@keyframes walk {
+    0% {
+        left: -80px;
+        transform: scaleX(1);
+    }
+
+    45% {
+        left: 220px;
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 220px;
+        transform: scaleX(-1);
+    }
+
+    95% {
+        left: -80px;
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: -80px;
+        transform: scaleX(1);
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<h1>📊 User Engagement Dashboard</h1>
+
+{% for user in users %}
+<div class="card {{ user.status }}">
+    <h3>{{ user.name }}</h3>
+    <p>Status: {{ user.status }}</p>
+    <p>Last Active: {{ user.last_active_days }} days ago</p>
+    <p>{{ user.message }}</p>
+</div>
+{% endfor %}
+
+<hr>
+
+<h2>🧪 Test User</h2>
+
+<label>Last Active Days:</label>
+<input type="number" id="days"><br><br>
+
+<label>Time Spent:</label>
+<input type="number" id="time"><br><br>
+
+<label>Marks:</label>
+<input type="number" id="marks"><br><br>
+
+<button onclick="analyze()">Analyze</button>
+
+<h3 id="result"></h3>
+
+<!-- 🐶 FINAL POPUP -->
+<div id="puppy-popup" class="puppy-popup hidden">
+
+    <div class="puppy-container">
+        <img src="{{ url_for('static', filename='puppy.gif') }}" class="puppy-img">
+    </div>
+
+    <div class="puppy-text" id="puppy-text">
+        🐶 Hey 🥺… I was waiting for you today…
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
