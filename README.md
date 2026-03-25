@@ -16,7 +16,7 @@ This project is a smart user engagement system that detects inactive users and r
 ---
 
 ## 🛠️ Tech Stack
-- Backend: Flask (Python),Mechine Learning
+- Backend: Flask (Python)
 - Database: SQLite
 - Frontend: HTML, CSS, JavaScript
 - Scheduling: APScheduler
@@ -34,3 +34,18 @@ This project is a smart user engagement system that detects inactive users and r
 ---
 
 ## 📂 Project Structure
+smart-reengagement-system/
+│
+├── app.py
+├── create_db.py
+├── insert_users.py
+├── users.db
+│
+├── static/
+│ ├── script.js
+│ └── puppy.gif
+│
+├── templates/
+│ └── index.html
+│
+└── README.md
