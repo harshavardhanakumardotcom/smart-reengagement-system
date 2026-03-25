@@ -29,3 +29,11 @@ This project is a smart user engagement system that detects inactive users and r
 5. Displays interactive popup with animated puppy  
 6. Puppy speaks message using browser voice  
 
+---
+
+ How to Run
+```bash
+pip install flask apscheduler
+python create_db.py
+python insert_users.py
+python app.py
